@@ -118,7 +118,6 @@ local WM_CO_FREQUENCY         =0x0020
 local WM_GS_VERSION           =0x0001
 
 local midi = nil
-local mididata = nil
 
 local source, sounddata
 
@@ -152,11 +151,9 @@ callbacks.allocate_file = function(filename, filesize)
 		return nil
 	end
 	filesize[0] = size
-	mididata = data
-	return mididata:getFFIPointer()
+	return data:getFFIPointer()
 end
 callbacks.free_file = function()
-	mididata = nil
 end
 
 function MidiPlayer.open(filename, options)
