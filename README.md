@@ -1,7 +1,7 @@
 Play MIDI in LOVE 11.x via WildMidi https://github.com/Mindwerks/wildmidi
 
 Requires:
-- LOVE 11.x or later
+- LOVE 11.x or later https://love2d.org/
 - WildMidi library
 	- Linux: install libwildmidi dev package
 		- e.g. Ubuntu/Debian: sudo apt install libwildmidi-dev
