@@ -6,7 +6,7 @@ function love.load()
 			logarithmicvolume = true,
 			enhancedresampling = true,
 			reverb = true,
-			loop = false
+			loop = true
 		})
 end
 
