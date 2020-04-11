@@ -136,7 +136,7 @@ function MidiPlayer.play()
 		local r = lib.WildMidi_GetOutput(midi, sounddata:getFFIPointer(),
 			sounddata:getSize())
 		if r < 0 then
-			print(lib.WildMidi_GetError())
+			print(ffi.string(lib.WildMidi_GetError()))
 		end
 		source:queue(sounddata)
 		source:play()
@@ -182,13 +182,13 @@ function MidiPlayer.open(filename, options)
 	Shutdown()
 
 	if lib.WildMidi_InitVIO(callbacks, cfgfile, rate, bitoptions) ~= 0 then
-		print(lib.WildMidi_GetError())
+		print(ffi.string(lib.WildMidi_GetError()))
 		return nil
 	end
 
 	midi = lib.WildMidi_OpenBuffer(data:getFFIPointer(), data:getSize())
 	if not midi then
-		print(lib.WildMidi_GetError())
+		print(ffi.string(lib.WildMidi_GetError()))
 		lib.WildMidi_Shutdown()
 		return nil
 	end
